@@ -1,6 +1,7 @@
 // import material dart for the widget
 import 'package:flutter/material.dart';
 import 'package:test_app/homePage.dart';
+import 'package:test_app/profilePage.dart';
 
 // functions: entry point for the whole app
 void main() => runApp(const MyApp());
@@ -34,6 +35,7 @@ class RootPage extends StatefulWidget {
 class _RootPageState extends State<RootPage> {
   // locals
   int currentPage = 0;
+  List<Widget> pages = [HomePage(), profilePage()];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _RootPageState extends State<RootPage> {
         title: const Text('Flutter'),
         foregroundColor: Colors.white,
       ),
-      body: const HomePage(),
+      body: pages[currentPage],
       // content
       floatingActionButton: FloatingActionButton(
         onPressed: () {
