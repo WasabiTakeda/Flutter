@@ -197,7 +197,7 @@ Widget searchFood() {
       decoration: InputDecoration(
           filled: true,
           fillColor: Colors.white,
-          contentPadding: EdgeInsets.symmetric(vertical: 20),
+          contentPadding: const EdgeInsets.all(30),
           hintText: 'Search for anything...',
           hintStyle: GoogleFonts.poorStory(
             color: Colors.grey,
