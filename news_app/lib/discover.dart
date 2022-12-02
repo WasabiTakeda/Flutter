@@ -7,6 +7,21 @@ class DiscoverPage extends StatefulWidget {
 }
 
 class _DiscoverPageState extends State<DiscoverPage> {
+  // show images
+  showImage(var news) {
+    if (news == 'Health') {
+      return Image.asset(
+        'images/image2.jpg',
+        fit: BoxFit.cover,
+      );
+    } else if (news == 'Politics') {
+      return Image.asset(
+        'images/image1.jpg',
+        fit: BoxFit.cover,
+      );
+    }
+  }
+
   // list of news tabs
   List<String> news_list = [
     'Health',
@@ -116,10 +131,10 @@ class _DiscoverPageState extends State<DiscoverPage> {
                 child: TabBar(
                   // isScrollable: true,
                   tabs: [
-                    for (var news_tab in news_list)
+                    for (var newsTab in news_list)
                       Tab(
                         child: Text(
-                          '${news_tab}',
+                          '${newsTab}',
                           style: GoogleFonts.raleway(
                             color: Colors.black,
                             fontSize: 22,
@@ -138,115 +153,110 @@ class _DiscoverPageState extends State<DiscoverPage> {
                   child: TabBarView(
                     children: [
                       // health
-                      ListView(
-                        children: <Widget>[
-                          for (var num = 1; num <= 10; num++)
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 100,
-                              margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // headline image
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Container(
-                                      height: double.infinity,
-                                      width: 100,
-                                      child: Image.asset(
-                                        'images/image1.jpg',
-                                        fit: BoxFit.cover,
+                      for (var news in news_list) ...[
+                        ListView(
+                          children: <Widget>[
+                            for (var num = 1; num <= 10; num++)
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 100,
+                                margin: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // headline image
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: Container(
+                                        height: double.infinity,
+                                        width: 100,
+                                        child: showImage(news),
                                       ),
                                     ),
-                                  ),
-                                  // news content
-                                  Expanded(
-                                    child: Container(
-                                      margin: const EdgeInsets.fromLTRB(
-                                          10, 0, 10, 0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Text(
-                                            'Blah Blah Blah Blah Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
-                                            style: GoogleFonts.raleway(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.watch_later_outlined,
-                                                    color: Colors.grey,
-                                                    size: 14,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    '5 hours ago',
-                                                    style: GoogleFonts.raleway(
+                                    // news content
+                                    Expanded(
+                                      child: Container(
+                                        margin: const EdgeInsets.fromLTRB(
+                                            10, 0, 10, 0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              'Blah Blah Blah Blah Blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah',
+                                              style: GoogleFonts.raleway(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.bold),
+                                            ),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .watch_later_outlined,
                                                       color: Colors.grey,
-                                                      fontSize: 14,
+                                                      size: 14,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.center,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  Icon(
-                                                    Icons.remove_red_eye_sharp,
-                                                    color: Colors.grey,
-                                                    size: 14,
-                                                  ),
-                                                  SizedBox(
-                                                    width: 5,
-                                                  ),
-                                                  Text(
-                                                    '345 views',
-                                                    style: GoogleFonts.raleway(
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      '5 hours ago',
+                                                      style:
+                                                          GoogleFonts.raleway(
+                                                        color: Colors.grey,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Row(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Icon(
+                                                      Icons
+                                                          .remove_red_eye_sharp,
                                                       color: Colors.grey,
-                                                      fontSize: 14,
+                                                      size: 14,
                                                     ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                                    SizedBox(
+                                                      width: 5,
+                                                    ),
+                                                    Text(
+                                                      '345 views',
+                                                      style:
+                                                          GoogleFonts.raleway(
+                                                        color: Colors.grey,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                        ],
-                      ),
-                      ListView(
-                        children: <Widget>[
-                          for (var num = 1; num <= 10; num++)
-                            Container(
-                              height: 50,
-                              child: Text('News 2'),
-                            ),
-                        ],
-                      ),
+                          ],
+                        ),
+                      ]
                     ],
                   ),
                 ),

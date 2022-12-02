@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 // new routes
 import 'package:news_app/home.dart';
 import 'package:news_app/discover.dart';
+import 'package:news_app/profile.dart';
 
 // application debug & run
 void main() => runApp(const News());
@@ -41,6 +42,8 @@ class _RootPageState extends State<RootPage> {
     HomePage(),
     // discover page
     DiscoverPage(),
+    // profile page
+    ProfilePage(),
   ];
 
   @override
