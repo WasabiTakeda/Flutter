@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:news_app/main.dart';
+import 'package:news_app/NavDrawer.dart';
 
 class NewsImage {
   String? headline;
@@ -30,6 +30,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: SideMenu(),
       // action bar
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(330),
@@ -110,9 +111,13 @@ class HomePage extends StatelessWidget {
             'NEWS',
             style: GoogleFonts.raleway(),
           ),
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.menu),
+          leading: Builder(
+            builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Icon(Icons.menu),
+            ),
           ),
           // behind tab bar and toolbar
           flexibleSpace: ClipRRect(
