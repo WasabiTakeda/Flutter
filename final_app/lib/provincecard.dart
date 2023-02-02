@@ -1,5 +1,5 @@
 import 'package:final_app/future_list.dart';
-import 'package:final_app/provinces.dart';
+import 'package:final_app/models/provinces.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,7 +68,7 @@ class _ProvinceCardState extends State<ProvinceCard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${provinces![index].name.toString()}',
+                      provinces![index].name.toString(),
                       style: GoogleFonts.roboto(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -78,7 +78,7 @@ class _ProvinceCardState extends State<ProvinceCard> {
                     Text(
                       '${provinces![index].placeCount} Places',
                       style: GoogleFonts.roboto(
-                        color: Colors.blue,
+                        color: Colors.black,
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),

@@ -43,21 +43,21 @@ class _RootPageState extends State<RootPage> {
       // app bar
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: Icon(
+        leading: const Icon(
           Icons.map_rounded,
           color: Colors.black,
         ),
         actions: [
           Container(
             margin: const EdgeInsets.fromLTRB(0, 0, 20, 0),
-            child: Icon(
+            child: const Icon(
               Icons.question_mark_rounded,
               color: Colors.black,
             ),
           ),
         ],
         title: Text(
-          "Great Destinations",
+          "Final Exam - Em Vannin",
           style: GoogleFonts.roboto(
             color: Colors.black,
           ),

@@ -1,5 +1,5 @@
 import 'package:final_app/future_list.dart';
-import 'package:final_app/province_detail.dart';
+import 'package:final_app/models/province_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +13,9 @@ class ProvinceDetailPage extends StatefulWidget {
 }
 
 class _ProvinceDetailPageState extends State<ProvinceDetailPage> {
+  //local
+  var isMore = false;
+
   // province detail
   ProvinceDetail? provinceDetail;
   var isLoaded = false;
@@ -99,22 +102,48 @@ class _ProvinceDetailPageState extends State<ProvinceDetailPage> {
                 height: 20,
               ),
 
-              // //shortdescription
+              //shortdescription & description
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height / 2,
+                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                 child: SingleChildScrollView(
                   child: Text(
                     //provinceDetail!.shortDescription,
-                    (isLoaded) ? provinceDetail!.shortDescription : '...',
+                    (isLoaded)
+                        ? (isMore)
+                            ? provinceDetail!.description
+                            : provinceDetail!.shortDescription
+                        : "...",
                     style: GoogleFonts.roboto(
-                      color: Colors.grey,
-                      fontSize: 30,
+                      color: Colors.black,
+                      fontSize: 20,
                       fontWeight: FontWeight.w300,
                     ),
                   ),
                 ),
               ),
+
+              // show more and show less
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {
+                      if (isMore) {
+                        isMore = false;
+                      } else {
+                        isMore = true;
+                      }
+                    });
+                  },
+                  child: Text(
+                    (isMore) ? "show less" : "show more",
+                    style: GoogleFonts.roboto(
+                      color: Colors.blue,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
         ),

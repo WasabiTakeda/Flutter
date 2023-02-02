@@ -16,6 +16,7 @@ class ProvinceDetail {
     required this.imageUrl,
     required this.placeCount,
     required this.shortDescription,
+    required this.description,
   });
 
   int id;
@@ -23,6 +24,7 @@ class ProvinceDetail {
   String imageUrl;
   int placeCount;
   String shortDescription;
+  String description;
 
   factory ProvinceDetail.fromJson(Map<String, dynamic> json) => ProvinceDetail(
         id: json["id"],
@@ -30,6 +32,7 @@ class ProvinceDetail {
         imageUrl: json["imageUrl"],
         placeCount: json["placeCount"],
         shortDescription: json["shortDescription"],
+        description: json["description"],
       );
 
   Map<String, dynamic> toJson() => {
@@ -38,5 +41,6 @@ class ProvinceDetail {
         "imageUrl": imageUrl,
         "placeCount": placeCount,
         "shortDescription": shortDescription,
+        "description": description,
       };
 }

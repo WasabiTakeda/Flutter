@@ -1,9 +1,7 @@
-import 'dart:io';
-
-import 'package:final_app/province_detail.dart';
-import 'package:final_app/provinces.dart';
+import 'package:final_app/models/province_detail.dart';
+import 'package:final_app/models/provinces.dart';
 import 'package:http/http.dart' as http;
-import 'exception_handler.dart';
+import 'services/exception_handler.dart';
 
 class FutureList {
   // province list api
